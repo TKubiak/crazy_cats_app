@@ -1,0 +1,12 @@
+html {
+    background-color: #F4EFF4;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "KGRedHands";
+    src: local("KGRedHands"), url(./assets/KGRedHands.ttf) format("truetype");
+}

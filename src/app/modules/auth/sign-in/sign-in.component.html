@@ -1,0 +1,82 @@
+<div class="p-10 flex flex-col justify-center items-center space-y-20 w-auto h-auto mt-auto">
+  <!-- <img class="rounded-full w-28 h-28" alt="Craz cats logo" src="../../../assets/chmuracat.gif" /> -->
+  <!-- Header -->
+  <h2 class="mt-1 text-center text-2xl md:text-7xl  text-blue-500 font-bold font-['KGRedHands'] "
+    data-cy="login-header">
+    Crazy Cats</h2>
+
+  <form class="flex flex-col space-y-4 w-80 max-h">
+    <div class="h-8">
+      <!-- Email input -->
+      <input
+        class="px-3 w-full h-auto text-lg border-b-2 hover:border-b-4 hover:border-b-blue-600 outline-none bg-transparent"
+        placeholder="E-mail" type="email" id="email" name="email" data-cy="login-username-field" />
+    </div>
+    <div class="h-8 flex flex-row items-center">
+      <!-- Password input -->
+      <input class="px-3 w-full text-lg border-b-2 hover:border-b-4 hover:border-b-blue-600 bg-transparent outline-none"
+        type="password" placeholder="Password" id="password" name="password"
+        [type]="user.showPassword ? 'text' : 'password'" data-cy="login-password-field" />
+      <button type="button" class="" (click)="user.showPassword = !user.showPassword">
+        <div class="" [class]="user.showPassword ? 'visible' : 'hidden'">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+            </path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+            </path>
+          </svg>
+        </div>
+        <!-- Show password button -->
+        <div class="" [class]="user.showPassword ? 'hidden' : 'visible'">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21">
+            </path>
+          </svg>
+        </div>
+      </button>
+    </div>
+    <!-- Sign in button -->
+    <button
+      class="border-solid py-1 w-full text-md font-semibold rounded-md bg-slate-300 hover:bg-blue-600 hover:text-gray-800"
+      (click)="signIn()" data-cy="login-button">
+      Login
+    </button>
+
+    <!-- OAuth2 Login options -->
+    <div class="flex flex-row justify-center items-center pt-8 space-x-10">
+      <button disabled
+        class="bg-blue-500 hover:bg-blue-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg class="w-8 h-8 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+      </button>
+
+      <button disabled
+        class="bg-red-500 hover:bg-red-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+          class="w-8" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+          <g fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12c6.627 0 12-5.373 12-12S18.627 0 12 0zm.14 19.018c-3.868 0-7-3.14-7-7.018c0-3.878 3.132-7.018 7-7.018c1.89 0 3.47.697 4.682 1.829l-1.974 1.978v-.004c-.735-.702-1.667-1.062-2.708-1.062c-2.31 0-4.187 1.956-4.187 4.273c0 2.315 1.877 4.277 4.187 4.277c2.096 0 3.522-1.202 3.816-2.852H12.14v-2.737h6.585c.088.47.135.96.135 1.474c0 4.01-2.677 6.86-6.72 6.86z"
+              fill="currentColor" />
+          </g>
+        </svg>
+      </button>
+
+      <button disabled
+        class="bg-gray-600 hover:bg-gray-800 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+          class="w-8" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+          <g fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+              fill="currentColor" />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
